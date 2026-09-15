@@ -1,0 +1,246 @@
+.campus-button {
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    border:none;
+
+    border-radius:14px;
+
+    font-family:inherit;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    position:relative;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease,
+        border-color .25s ease;
+
+}
+
+
+.campus-button:disabled {
+
+    opacity:.55;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}
+
+
+
+/* =========================
+   SIZES
+========================= */
+
+
+.button-sm {
+
+    padding:8px 14px;
+
+    font-size:.78rem;
+
+}
+
+
+.button-md {
+
+    padding:11px 22px;
+
+    font-size:.9rem;
+
+}
+
+
+.button-lg {
+
+    padding:14px 28px;
+
+    font-size:1rem;
+
+}
+
+
+
+/* =========================
+   VARIANTS
+========================= */
+
+
+.button-primary {
+
+    color:white;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+}
+
+
+.button-primary:hover:not(:disabled) {
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 15px 30px
+    rgba(99,102,241,.25);
+
+}
+
+
+
+/* SECONDARY */
+
+
+.button-secondary {
+
+    color:var(--text);
+
+    background:var(--surface-solid);
+
+    border:
+
+    1px solid var(--border);
+
+}
+
+
+.button-secondary:hover:not(:disabled) {
+
+    transform:translateY(-2px);
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+
+
+/* GHOST */
+
+
+.button-ghost {
+
+    color:var(--muted);
+
+    background:transparent;
+
+}
+
+
+.button-ghost:hover:not(:disabled) {
+
+    background:
+
+    rgba(99,102,241,.1);
+
+    color:var(--primary);
+
+}
+
+
+
+/* DANGER */
+
+
+.button-danger {
+
+    color:white;
+
+    background:#ef4444;
+
+}
+
+
+.button-danger:hover:not(:disabled) {
+
+    background:#dc2626;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+/* =========================
+   FULL WIDTH
+========================= */
+
+
+.button-full {
+
+    width:100%;
+
+}
+
+
+
+/* =========================
+   LOADING STATE
+========================= */
+
+
+.button-loading {
+
+    cursor:wait;
+
+}
+
+
+.button-loader {
+
+    width:16px;
+
+    height:16px;
+
+    border:
+
+    2px solid currentColor;
+
+    border-top-color:transparent;
+
+    border-radius:50%;
+
+    animation:
+
+    button-spin .7s linear infinite;
+
+}
+
+
+
+@keyframes button-spin {
+
+    from {
+
+        transform:rotate(0deg);
+
+    }
+
+
+    to {
+
+        transform:rotate(360deg);
+
+    }
+
+}

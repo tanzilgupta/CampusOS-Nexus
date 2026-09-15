@@ -1,0 +1,159 @@
+/* =====================================================
+   DASHBOARD LAYOUT - WORKSPACE SHELL
+===================================================== */
+
+.dashboard-layout {
+    display: flex;
+    gap: 28px;
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 24px clamp(16px, 2.5vw, 36px) 48px;
+    align-items: flex-start;
+    min-height: calc(100vh - 74px);
+    position: relative;
+}
+
+.dashboard-content {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    animation: fadeUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =====================================================
+   MOBILE WORKSPACE BAR (<= 1024px)
+===================================================== */
+
+.dashboard-mobile-bar {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+    border-radius: 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.mobile-workspace-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 12px;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.mobile-workspace-toggle:hover {
+    background: rgba(99, 102, 241, 0.16);
+    transform: translateY(-1px);
+}
+
+.mobile-page-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text);
+    background: var(--surface-hover);
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    letter-spacing: -0.01em;
+}
+
+.mobile-page-badge svg {
+    color: var(--primary);
+}
+
+.mobile-quick-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--gradient);
+    color: white;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mobile-quick-action:hover {
+    transform: scale(1.06);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+}
+
+/* =====================================================
+   BACKDROP OVERLAY
+===================================================== */
+
+.sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 1040;
+    animation: backdropFadeIn 0.25s ease forwards;
+}
+
+@keyframes backdropFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* =====================================================
+   RESPONSIVE BREAKPOINTS
+===================================================== */
+
+@media (max-width: 1024px) {
+    .dashboard-layout {
+        flex-direction: column;
+        padding: 16px clamp(12px, 3vw, 24px) 40px;
+        gap: 0;
+    }
+
+    .dashboard-mobile-bar {
+        display: flex;
+    }
+
+    .dashboard-content {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-mobile-bar {
+        padding: 8px 10px;
+        border-radius: 14px;
+    }
+
+    .mobile-workspace-toggle span {
+        font-size: 0.8rem;
+    }
+
+    .mobile-page-badge {
+        font-size: 0.75rem;
+        padding: 5px 9px;
+    }
+}

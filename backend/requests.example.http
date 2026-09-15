@@ -1,0 +1,224 @@
+### =========================
+### AUTH
+### =========================
+
+
+### Register User
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Demo Student",
+  "email": "demo.student@example.com",
+  "password": "Demo@123",
+  "role": "STUDENT"
+}
+
+
+
+### Login User
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "demo.student@example.com",
+  "password": "Demo@123"
+}
+
+
+### Copy JWT token from login response
+### Replace YOUR_TOKEN below
+
+
+### =========================
+### PROFILE
+### =========================
+
+
+### Create Profile
+POST http://localhost:8080/api/profile
+Authorization: Bearer YOUR_TOKEN
+Content-Type: application/json
+
+{
+  "fullName": "Demo Student",
+  "bio": "Computer Science student interested in software development.",
+  "university": "Demo University",
+  "degree": "B.Tech Computer Science",
+  "year": "2",
+  "branch": "Computer Science",
+  "githubUrl": "https://github.com/demo",
+  "linkedinUrl": "https://linkedin.com/in/demo",
+  "portfolioUrl": "https://demo.dev",
+  "resumeUrl": "https://resume.demo.dev"
+}
+
+
+
+### Get Profile
+GET http://localhost:8080/api/profile
+Authorization: Bearer YOUR_TOKEN
+
+
+
+### =========================
+### SKILLS
+### =========================
+
+
+### Add Skill
+POST http://localhost:8080/api/skills/1
+Authorization: Bearer YOUR_TOKEN
+Content-Type: application/json
+
+{
+  "name": "Java",
+  "category": "Programming Language",
+  "proficiency": "Advanced",
+  "evidence": "Built backend applications using Java."
+}
+
+
+
+### Get Skills
+GET http://localhost:8080/api/skills/1
+Authorization: Bearer YOUR_TOKEN
+
+
+
+### =========================
+### PROJECTS
+### =========================
+
+
+### Create Project
+POST http://localhost:8080/api/projects/1
+Authorization: Bearer YOUR_TOKEN
+Content-Type: application/json
+
+{
+  "title": "CampusOS Nexus",
+  "description": "Student collaboration platform.",
+  "domain": "Software Development",
+  "maxMembers": 5,
+  "deadline": "2026-12-31"
+}
+
+
+
+### Get All Projects
+GET http://localhost:8080/api/projects
+Authorization: Bearer YOUR_TOKEN
+
+
+
+### Get Project By ID
+GET http://localhost:8080/api/projects/1
+Authorization: Bearer YOUR_TOKEN
+
+
+
+### =========================
+### TEAMS
+### =========================
+
+
+### Create Team
+POST http://localhost:8080/api/teams/1
+Authorization: Bearer YOUR_TOKEN
+Content-Type: application/json
+
+{
+  "name": "Backend Team",
+  "description": "Working on backend development.",
+  "domain": "Spring Boot",
+  "projectId": 1
+}
+
+
+
+### Get Teams
+GET http://localhost:8080/api/teams
+Authorization: Bearer YOUR_TOKEN
+
+
+
+### =========================
+### APPLICATIONS
+### =========================
+
+
+### Apply To Project
+POST http://localhost:8080/api/applications/project/1/user/1
+Authorization: Bearer YOUR_TOKEN
+Content-Type: application/json
+
+{
+  "message": "Interested in contributing as backend developer."
+}
+
+
+
+### Get Applications
+GET http://localhost:8080/api/applications/project/1
+Authorization: Bearer YOUR_TOKEN
+
+
+
+### =========================
+### MATCHING
+### =========================
+
+
+### Get Recommendations
+GET http://localhost:8080/api/matching/project/1
+Authorization: Bearer YOUR_TOKEN
+
+
+
+### =========================
+### PORTFOLIO
+### =========================
+
+
+### Create Portfolio
+POST http://localhost:8080/api/portfolio/1
+Authorization: Bearer YOUR_TOKEN
+Content-Type: application/json
+
+{
+  "title": "Demo Portfolio",
+  "description": "Software developer portfolio.",
+  "projectUrl": "https://github.com/demo/project",
+  "imageUrl": "https://example.com/image.png"
+}
+
+
+
+### Get Portfolio
+GET http://localhost:8080/api/portfolio/1
+Authorization: Bearer YOUR_TOKEN
+
+
+
+### =========================
+### REVIEWS
+### =========================
+
+
+### Create Review
+POST http://localhost:8080/api/reviews/1
+Authorization: Bearer YOUR_TOKEN
+Content-Type: application/json
+
+{
+  "reviewedUserId": 1,
+  "rating": 5,
+  "comment": "Great collaboration and technical skills."
+}
+
+
+
+### Get Reviews
+GET http://localhost:8080/api/reviews/user/1
+Authorization: Bearer YOUR_TOKEN

@@ -1,0 +1,41 @@
+.campus-card {
+
+    background:
+        var(--surface);
+
+    backdrop-filter:
+        blur(20px);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        24px;
+
+    padding:
+        24px;
+
+    box-shadow:
+        var(--shadow);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+
+}
+
+
+
+.campus-card-hover:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(99,102,241,.35);
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.12);
+
+}

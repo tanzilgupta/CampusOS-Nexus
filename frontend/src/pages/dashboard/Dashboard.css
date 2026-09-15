@@ -1,0 +1,526 @@
+/* =====================================================
+   DASHBOARD PAGE - MODERN WORKSPACE
+===================================================== */
+
+.dashboard-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 3vw, 32px);
+    animation: fadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =====================================================
+   HEADER BANNER
+===================================================== */
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(22px, 3.5vw, 38px);
+    border: 1px solid var(--border);
+    border-radius: clamp(20px, 2.5vw, 28px);
+    background: linear-gradient(135deg, var(--surface-solid), var(--surface));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: var(--shadow);
+}
+
+.dashboard-header::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 380px;
+    aspect-ratio: 1;
+    right: -100px;
+    top: -160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.22), transparent 70%);
+    animation: float 9s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.dashboard-header::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 260px;
+    aspect-ratio: 1;
+    left: 20%;
+    bottom: -120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.16), transparent 65%);
+    pointer-events: none;
+}
+
+.dashboard-header > div:first-child {
+    flex: 1;
+    min-width: min(100%, 300px);
+}
+
+.dashboard-eyebrow-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.dashboard-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.dashboard-header h1 {
+    font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin: 0;
+}
+
+.dashboard-header h1 span {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dashboard-subtitle {
+    margin: 8px 0 0;
+    color: var(--muted);
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+    max-width: 580px;
+    line-height: 1.55;
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.dashboard-create-button,
+.dashboard-secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.32);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.dashboard-create-button:hover,
+.dashboard-secondary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(99, 102, 241, 0.42);
+}
+
+/* =====================================================
+   STATS CARDS GRID
+===================================================== */
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+    gap: clamp(12px, 1.8vw, 20px);
+}
+
+.dashboard-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: clamp(16px, 2vw, 22px);
+    border-radius: 20px;
+    background: var(--surface);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.dashboard-stat-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(99, 102, 241, 0.35);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(99, 102, 241, 0.12);
+    color: var(--primary);
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.dashboard-stat-card:hover .stat-icon {
+    transform: scale(1.08);
+}
+
+.dashboard-stat-card:nth-child(2) .stat-icon {
+    color: var(--secondary);
+    background: var(--secondary-soft);
+}
+
+.dashboard-stat-card:nth-child(3) .stat-icon {
+    color: var(--success);
+    background: rgba(34, 197, 94, 0.12);
+}
+
+.dashboard-stat-card:nth-child(4) .stat-icon {
+    color: var(--warning);
+    background: rgba(245, 158, 11, 0.14);
+}
+
+.dashboard-stat-card > div:last-child {
+    min-width: 0;
+    flex: 1;
+}
+
+.dashboard-stat-card span {
+    display: block;
+    font-size: clamp(0.75rem, 1vw, 0.82rem);
+    font-weight: 500;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dashboard-stat-card strong {
+    display: block;
+    margin-top: 3px;
+    font-size: clamp(1.35rem, 2vw, 1.7rem);
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+}
+
+/* =====================================================
+   DASHBOARD MAIN GRID (PROGRESS & INSIGHTS)
+===================================================== */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    gap: clamp(16px, 2vw, 24px);
+}
+
+.dashboard-card {
+    padding: clamp(20px, 2.5vw, 28px);
+    border-radius: clamp(18px, 2vw, 24px);
+    background: var(--surface);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.card-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.card-heading h2,
+.section-heading h2 {
+    font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+    letter-spacing: -0.015em;
+}
+
+.card-heading p,
+.section-heading p {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 0.86rem;
+    line-height: 1.5;
+}
+
+/* =====================================================
+   PROGRESS & PROFILE TASKS
+===================================================== */
+
+.progress-wrapper {
+    margin-top: 24px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.84rem;
+}
+
+.progress-info span {
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.progress-info strong {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 9px;
+    background: rgba(148, 163, 184, 0.18);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-value {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 20px;
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.profile-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.profile-tasks a,
+.profile-tasks div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 14px;
+    border-radius: 12px;
+    background: rgba(148, 163, 184, 0.08);
+    border: 1px solid transparent;
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 500;
+    color: var(--text);
+    transition: all 0.2s ease;
+}
+
+.profile-tasks a:hover {
+    color: var(--primary);
+    background: rgba(99, 102, 241, 0.08);
+    border-color: rgba(99, 102, 241, 0.2);
+    transform: translateX(3px);
+}
+
+.task-check {
+    margin-right: 8px;
+    color: var(--success);
+    font-weight: 700;
+}
+
+/* =====================================================
+   INSIGHT SCORE CARD
+===================================================== */
+
+.insight-card {
+    justify-content: space-between;
+}
+
+.insight-score {
+    margin: 28px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.insight-score strong {
+    display: block;
+    font-size: clamp(2.4rem, 4vw, 3.2rem);
+    font-weight: 800;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
+.insight-score span {
+    color: var(--muted);
+    font-size: 0.84rem;
+    max-width: 240px;
+    line-height: 1.45;
+}
+
+/* =====================================================
+   DASHBOARD SECTIONS & EMPTY STATES
+===================================================== */
+
+.dashboard-section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--primary);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.text-link:hover {
+    color: var(--primary-hover);
+    transform: translateX(2px);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: clamp(16px, 2vw, 22px);
+}
+
+.empty-dashboard-state {
+    padding: clamp(32px, 4vw, 48px) 24px;
+    text-align: center;
+    border-radius: clamp(18px, 2vw, 24px);
+    background: var(--surface);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px dashed var(--border-strong);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.empty-state-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: rgba(99, 102, 241, 0.12);
+    color: var(--primary);
+}
+
+.empty-dashboard-state h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.empty-dashboard-state p {
+    color: var(--muted);
+    font-size: 0.88rem;
+    max-width: 440px;
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+}
+
+/* =====================================================
+   RESPONSIVE ADJUSTMENTS
+===================================================== */
+
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .dashboard-create-button {
+        width: 100%;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .dashboard-stat-card {
+        padding: 14px 12px;
+        gap: 10px;
+        border-radius: 16px;
+    }
+
+    .stat-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+    }
+
+    .dashboard-stat-card strong {
+        font-size: 1.3rem;
+    }
+
+    .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .empty-dashboard-state {
+        padding: 28px 16px;
+    }
+
+    .dashboard-secondary-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+}

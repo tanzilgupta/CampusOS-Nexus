@@ -1,0 +1,232 @@
+.modal-overlay {
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:2000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+
+    rgba(15,23,42,.55);
+
+    backdrop-filter:
+
+    blur(8px);
+
+}
+
+
+
+.modal-container {
+
+    width:100%;
+
+    background:
+
+    var(--surface-solid);
+
+    border:
+
+    1px solid var(--border);
+
+    border-radius:24px;
+
+    box-shadow:
+
+    var(--shadow);
+
+    animation:
+
+    modal-show .25s ease;
+
+    max-height:
+
+    90vh;
+
+    overflow:auto;
+
+}
+
+
+
+.modal-sm {
+
+    max-width:400px;
+
+}
+
+
+
+.modal-md {
+
+    max-width:600px;
+
+}
+
+
+
+.modal-lg {
+
+    max-width:850px;
+
+}
+
+
+
+/* HEADER */
+
+.modal-header {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 24px;
+
+    border-bottom:
+
+    1px solid var(--border);
+
+}
+
+
+
+.modal-header h2 {
+
+    margin:0;
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+
+
+/* CLOSE BUTTON */
+
+.modal-close {
+
+    width:36px;
+
+    height:36px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:
+
+    rgba(148,163,184,.12);
+
+    color:var(--text);
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
+}
+
+
+
+.modal-close:hover {
+
+    background:
+
+    rgba(239,68,68,.15);
+
+    color:#ef4444;
+
+}
+
+
+
+/* BODY */
+
+.modal-body {
+
+    padding:24px;
+
+}
+
+
+
+/* ANIMATION */
+
+@keyframes modal-show {
+
+
+    from {
+
+        opacity:0;
+
+        transform:
+
+        translateY(20px)
+        scale(.96);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:
+
+        translateY(0)
+        scale(1);
+
+    }
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+
+    .modal-overlay{
+
+        padding:12px;
+
+    }
+
+
+
+    .modal-header{
+
+        padding:16px 18px;
+
+    }
+
+
+
+    .modal-body{
+
+        padding:18px;
+
+    }
+
+}

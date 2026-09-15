@@ -1,0 +1,15 @@
+{
+  "name": "campusos-nexus",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Intelligent Student Collaboration & Project Team Formation Platform",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "cd backend && mvnw spring-boot:run",
+    "frontend": "cd frontend && npm run dev -- --host 0.0.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
